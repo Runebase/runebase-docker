@@ -1,7 +1,7 @@
 .PHONY: image
 
-img_tag = "hayeah/qtumportal"
-container_name = "qtumportal"
+img_tag = "hayeah/runebaseportal"
+container_name = "runebaseportal"
 
 image:
 	docker build . -t $(img_tag)

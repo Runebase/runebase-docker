@@ -2,7 +2,7 @@
 
 set -e
 
-case $QTUM_NETWORK in
+case $RUNEBASE_NETWORK in
   local|regtest)
     SELECT_NETWORK=-regtest
     ;;
@@ -13,15 +13,15 @@ case $QTUM_NETWORK in
     SELECT_NETWORK=
     ;;
   *)
-    echo "Unknown network: $QTUM_NETWORK"
+    echo "Unknown network: $RUNEBASE_NETWORK"
     exit 1
 esac
 
-mkdir -p $QTUM_DATADIR
+mkdir -p $RUNEBASE_DATADIR
 
-exec qtumd ${SELECT_NETWORK} \
+exec runebased ${SELECT_NETWORK} \
   -rpcbind=0.0.0.0:3889 -rpcallowip=172.17.0.0/16 \
-  -datadir=$QTUM_DATADIR \
+  -datadir=$RUNEBASE_DATADIR \
   -logevents \
-  -rpcuser=$QTUM_RPC_USER -rpcpassword=$QTUM_RPC_PASS \
+  -rpcuser=$RUNEBASE_RPC_USER -rpcpassword=$RUNEBASE_RPC_PASS \
   -printtoconsole

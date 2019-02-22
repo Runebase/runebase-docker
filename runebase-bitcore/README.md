@@ -1,5 +1,7 @@
 # Quickstart
 
+This Dockerfile trace the latest dev version of runebase-bitcore, which is forked of Bitcore to work on Runebase - Not as well tested and primarily used for the extra RPC calls needed for the block explorer
+
 ## Get docker image
 
 You might take either way:
@@ -7,16 +9,16 @@ You might take either way:
 ### Pull a image from Public Docker hub
 
 ```
-$ docker pull runebase/runebase
+$ docker pull runebase/runebase-bitcore:latest
 ```
 
 ### Or, build runebase image with provided Dockerfile
 
-```
-$docker build --rm -t runebase/runebase .
-```
+This is recommended since it ensures build the latest dev version of runebase-bitcore.
 
-For historical versions, please visit [docker hub](https://hub.docker.com/r/runebase/runebase/)
+```
+$docker build --rm -t runebase/runebase-bitcore:latest .
+```
 
 ## Prepare data path and runebase.conf
 
@@ -42,19 +44,13 @@ To launch runebase node:
 
 ```
 ## to launch runebased
-$ docker run -d --rm --name runebase_node \
-             -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf \
-             -v /data/runebase-data/:/root/.runebase/ \
-             runebase/runebase runebased
+$ docker run -d --rm --name runebase_node -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf -v /data/runebase-data/:/root/.runebase/ runebase/runebase-bitcore:latest runebased
 
 ## check docker processed
 $ docker ps
 
 ## to stop runebased
-$ docker run -i --network container:runebase_node \
-             -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf \
-             -v /data/runebase-data/:/root/.runebase/ \
-             runebase/runebase runebase-cli stop
+$ docker run -i --network container:runebase_node -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf -v /data/runebase-data/:/root/.runebase/ runebase/runebase-bitcore:latest runebase-cli stop
 ```
 
 `${PWD}/runebase.conf` will be used, and blockchain data saved under /data/runebase-data/
@@ -64,18 +60,12 @@ $ docker run -i --network container:runebase_node \
 Use following docker command to interact with your runebase node with `runebase-cli`:
 
 ```
-$ docker run -i --network container:runebase_node \
-             -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf \
-             -v /data/runebase-data/:/root/.runebase/ \
-             runebase/runebase runebase-cli getinfo
+$ docker run -i --network container:runebase_node -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf -v /data/runebase-data/:/root/.runebase/ runebase/runebase-bitcore:latest runebase-cli getinfo
 ```
 
 For more runebase-cli commands, use:
 
 ```
-$ docker run -i --network container:runebase_node \
-             -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf \
-             -v /data/runebase-data/:/root/.runebase/ \
-             runebase/runebase runebase-cli help
+$ docker run -i --network container:runebase_node -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf -v /data/runebase-data/:/root/.runebase/ runebase/runebase-bitcore:latest runebase-cli help
 ```
 

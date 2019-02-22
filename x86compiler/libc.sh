@@ -1,5 +1,5 @@
 cd $HOME
-git clone https://github.com/qtumproject/FsLibc
+git clone https://github.com/runebase/FsLibc
 cd FsLibc
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=cross-toolchain.cmake -DCMAKE_INSTALL_PREFIX=$SYSROOT/usr .
 make -C libc

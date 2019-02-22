@@ -1,8 +1,8 @@
-#include <qtum.h>
+#include <runebase.h>
 #include <stdlib.h>
 #include <string.h>
 
-//__qtum_syscall(0x40, INTERNAL_PRINT, stringlen, stringptr, ... );
+//__runebase_syscall(0x40, INTERNAL_PRINT, stringlen, stringptr, ... );
 #define INTERNAL_PRINT 0xFFFF0001
 
 char* data="\n\n\n \
@@ -17,6 +17,6 @@ void onCreate() {
 }
 
 int main(){
-    __qtum_syscall(INTERNAL_PRINT, (long) data, 200, 0, 0, 0, 0);
+    __runebase_syscall(INTERNAL_PRINT, (long) data, 200, 0, 0, 0, 0);
     return 1;
 }
