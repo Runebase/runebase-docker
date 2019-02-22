@@ -20,7 +20,7 @@ esac
 mkdir -p $RUNEBASE_DATADIR
 
 exec runebased ${SELECT_NETWORK} \
-  -rpcbind=0.0.0.0:3889 -rpcallowip=172.17.0.0/16 \
+  -rpcbind=0.0.0.0:9432 -rpcallowip=172.17.0.0/16 \
   -datadir=$RUNEBASE_DATADIR \
   -logevents \
   -rpcuser=$RUNEBASE_RPC_USER -rpcpassword=$RUNEBASE_RPC_PASS \

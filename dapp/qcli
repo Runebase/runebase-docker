@@ -1,3 +1,3 @@
 #!/bin/sh
 
-runebase-cli -rpcport=3889 -rpcuser=$RUNEBASE_RPC_USER -rpcpassword=$RUNEBASE_RPC_PASS -regtest "$@"
+runebase-cli -rpcport=9432 -rpcuser=$RUNEBASE_RPC_USER -rpcpassword=$RUNEBASE_RPC_PASS -regtest "$@"

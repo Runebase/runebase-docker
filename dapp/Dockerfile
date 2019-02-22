@@ -33,7 +33,7 @@ RUN apk --no-cache add supervisor
 ENV RUNEBASE_DATADIR /dapp/.runebase
 ENV RUNEBASE_RPC_USER runebase
 ENV RUNEBASE_RPC_PASS test
-ENV RUNEBASE_RPC http://$RUNEBASE_RPC_USER:$RUNEBASE_RPC_PASS@localhost:3889
+ENV RUNEBASE_RPC http://$RUNEBASE_RPC_USER:$RUNEBASE_RPC_PASS@localhost:9432
 ENV RUNEBASE_NETWORK regtest
 
 VOLUME /dapp
@@ -50,11 +50,11 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # 9888: runebaseportal DApp RPC service
 # 9899: runebaseportal auth service
-# 3889: runebased RPC
-# 3888: peering port
-# 13888: peering port (testnet)
-# 23889: janus (adapter to Ethereum JSON RPC)
-EXPOSE 9888 9899 3889 3888 13888 23889
+# 9432: runebased RPC
+# 9947: peering port
+# 19947: peering port (testnet)
+# 29432: janus (adapter to Ethereum JSON RPC)
+EXPOSE 9888 9899 9432 9947 19947 29432
 
 WORKDIR /dapp
 

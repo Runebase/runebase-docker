@@ -20,5 +20,5 @@ RUN mkdir $RUNEBASE_DATA \
 	&& ln -sfn $RUNEBASE_DATA /root/.runebase \
 VOLUME /data
 
-EXPOSE 3888 3889 13888 13889
+EXPOSE 9947 9432 19947 19432
 CMD ["runebased"]
