@@ -6,10 +6,10 @@ RUN apt-get update && \
   apt-get install -y curl vim-tiny less && \
   rm -rf /var/lib/apt/lists/*
 
-ENV RUNEBASE_RELEASE 0.15.2
+ENV RUNEBASE_RELEASE 0.15.1
 ENV RUNEBASE_RELEASE_TAR runebase-${RUNEBASE_RELEASE}-x86_64-linux-gnu.tar.gz
 
-RUN wget https://github.com/runebase/runebase/releases/download/mainnet-ignition-v${RUNEBASE_RELEASE}/${RUNEBASE_RELEASE_TAR} && \
+RUN wget https://github.com/runebase/runebase/releases/download/${RUNEBASE_RELEASE}/${RUNEBASE_RELEASE_TAR} && \
   tar -xf $RUNEBASE_RELEASE_TAR -C /usr/local --strip-components=1 --exclude=*-qt --exclude=test_runebase --exclude=runebase-tx && \
   rm $RUNEBASE_RELEASE_TAR
 
