@@ -1,6 +1,6 @@
 # Quickstart
 
-This Dockerfile trace the latest dev version of qtum.
+This Dockerfile trace the latest dev version of runebase.
 
 ## Get docker image
 
@@ -9,63 +9,63 @@ You might take either way:
 ### Pull a image from Public Docker hub
 
 ```
-$ docker pull qtum/qtum:dev
+$ docker pull runebase/runebase:dev
 ```
 
-### Or, build qtum image with provided Dockerfile
+### Or, build runebase image with provided Dockerfile
 
 This is recommended since it ensures build the latest dev version.
 
 ```
-$docker build --rm -t qtum/qtum:dev .
+$docker build --rm -t runebase/runebase:dev .
 ```
 
-## Prepare data path and qtum.conf
+## Prepare data path and runebase.conf
 
 In order to use user-defined config file, as well as save block chain data, -v option for docker is recommended.
 
-First chose a path to save qtum block chain data:
+First chose a path to save runebase block chain data:
 
 ```
-sudo rm -rf /data/qtum-data
-sudo mkdir -p /data/qtum-data
-sudo chmod a+w /data/qtum-data
+sudo rm -rf /data/runebase-data
+sudo mkdir -p /data/runebase-data
+sudo chmod a+w /data/runebase-data
 ```
 
-Create your config file, refer to the example [qtum.conf]!(https://github.com/qtumproject/qtum/blob/1a926b980f03e97322c7dd787835bec1730f35d2/contrib/debian/examples/qtum.conf). Note rpcuser and rpcpassword to required for later `qtum-cli` usage for docker, so it is better to set those two options. Then please create the file ${PWD}/qtum.conf with content:
+Create your config file, refer to the example [runebase.conf]!(https://github.com/runebase/runebase/blob/1a926b980f03e97322c7dd787835bec1730f35d2/contrib/debian/examples/runebase.conf). Note rpcuser and rpcpassword to required for later `runebase-cli` usage for docker, so it is better to set those two options. Then please create the file ${PWD}/runebase.conf with content:
 
 ```
-rpcuser=qtum
-rpcpassword=qtumtest
+rpcuser=runebase
+rpcpassword=runebasetest
 ```
-## Launch qtumd
+## Launch runebased
 
-To launch qtum node:
+To launch runebase node:
 
 ```
-## to launch qtumd
-$ docker run -d --rm --name qtum_node -v ${PWD}/qtum.conf:/root/.qtum/qtum.conf -v /data/qtum-data/:/root/.qtum/ qtum/qtum:dev qtumd
+## to launch runebased
+$ docker run -d --rm --name runebase_node -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf -v /data/runebase-data/:/root/.runebase/ runebase/runebase:dev runebased
 
 ## check docker processed
 $ docker ps
 
-## to stop qtumd
-$ docker run -i --network container:qtum_node -v ${PWD}/qtum.conf:/root/.qtum/qtum.conf -v /data/qtum-data/:/root/.qtum/ qtum/qtum:dev qtum-cli stop
+## to stop runebased
+$ docker run -i --network container:runebase_node -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf -v /data/runebase-data/:/root/.runebase/ runebase/runebase:dev runebase-cli stop
 ```
 
-`${PWD}/qtum.conf` will be used, and blockchain data saved under /data/qtum-data/
+`${PWD}/runebase.conf` will be used, and blockchain data saved under /data/runebase-data/
 
-## Interact with `qtumd` using `qtum-cli`
+## Interact with `runebased` using `runebase-cli`
 
-Use following docker command to interact with your qtum node with `qtum-cli`:
-
-```
-$ docker run -i --network container:qtum_node -v ${PWD}/qtum.conf:/root/.qtum/qtum.conf -v /data/qtum-data/:/root/.qtum/ qtum/qtum:dev qtum-cli getinfo
-```
-
-For more qtum-cli commands, use:
+Use following docker command to interact with your runebase node with `runebase-cli`:
 
 ```
-$ docker run -i --network container:qtum_node -v ${PWD}/qtum.conf:/root/.qtum/qtum.conf -v /data/qtum-data/:/root/.qtum/ qtum/qtum:dev qtum-cli help
+$ docker run -i --network container:runebase_node -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf -v /data/runebase-data/:/root/.runebase/ runebase/runebase:dev runebase-cli getinfo
+```
+
+For more runebase-cli commands, use:
+
+```
+$ docker run -i --network container:runebase_node -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf -v /data/runebase-data/:/root/.runebase/ runebase/runebase:dev runebase-cli help
 ```
 

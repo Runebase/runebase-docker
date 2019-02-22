@@ -1,6 +1,6 @@
 # Quickstart
 
-This is a qtum-qt image, launch GUI wallet
+This is a runebase-qt image, launch GUI wallet
 
 ## Get docker image
 
@@ -9,48 +9,48 @@ To get the latest image, you might take either way:
 ### Pull a image from Public Docker hub
 
 ```
-$ docker pull qtum/qtum-qt
+$ docker pull runebase/runebase-qt
 ```
 
-### Or, build qtum image with provided Dockerfile
+### Or, build runebase image with provided Dockerfile
 
 ```
-$docker build --rm -t qtum/qtum-qt .
+$docker build --rm -t runebase/runebase-qt .
 ```
 
-For historical versions, please visit [docker hub](https://hub.docker.com/r/qtum/qtum-qt/)
+For historical versions, please visit [docker hub](https://hub.docker.com/r/runebase/runebase-qt/)
 
-## Prepare data path & qtum.conf
+## Prepare data path & runebase.conf
 
 In order to use user-defined config file, as well as save block chain data, -v option for docker is recommended.
 
-First chose a path to save qtum block chain data:
+First chose a path to save runebase block chain data:
 
 ```
-sudo rm -rf /data/qtum-data
-sudo mkdir -p /data/qtum-data
-sudo chmod a+w /data/qtum-data
+sudo rm -rf /data/runebase-data
+sudo mkdir -p /data/runebase-data
+sudo chmod a+w /data/runebase-data
 ```
 
-Create your config file, refer to the example [qtum.conf]!(https://github.com/qtumproject/qtum/blob/1a926b980f03e97322c7dd787835bec1730f35d2/contrib/debian/examples/qtum.conf). Then please create the file ${PWD}/qtum.conf with content:
+Create your config file, refer to the example [runebase.conf]!(https://github.com/runebase/runebase/blob/1a926b980f03e97322c7dd787835bec1730f35d2/contrib/debian/examples/runebase.conf). Then please create the file ${PWD}/runebase.conf with content:
 
 ```
-rpcuser=qtum
-rpcpassword=qtumtest
+rpcuser=runebase
+rpcpassword=runebasetest
 ```
 
 User can set their own config file on demands.
 
-## Launch qtum-qt
+## Launch runebase-qt
 
 For Linux:
 
 ```
 $ docker run -it --rm \
              -v /tmp/.X11-unix:/tmp/.X11-unix \
-             -v ${PWD}/qtum.conf:/root/.qtum/qtum.conf \
-             -v /data/qtum-data/:/root/.qtum/ \
-             -e DISPLAY  qtum/qtum-qt
+             -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf \
+             -v /data/runebase-data/:/root/.runebase/ \
+             -e DISPLAY  runebase/runebase-qt
 ```
 
 For Mac:
@@ -69,16 +69,16 @@ $ open -a Xquartz
 
 ## then set Xquartz preferences "Security-'Allow connections from network clients'"
 
-## launch qtum-qt 
-$ docker run -e DISPLAY=<your_ip>:0 -v ${PWD}/qtum.conf:/root/.qtum/qtum.conf -v /data/qtum-data/:/root/.qtum/ qtum/qtum-qt
+## launch runebase-qt 
+$ docker run -e DISPLAY=<your_ip>:0 -v ${PWD}/runebase.conf:/root/.runebase/runebase.conf -v /data/runebase-data/:/root/.runebase/ runebase/runebase-qt
 
 ```
 
 
-`${PWD}/qtum.conf` will be used, and blockchain data saved under /data/qtum-data/
+`${PWD}/runebase.conf` will be used, and blockchain data saved under /data/runebase-data/
 
 
-## exit qtum-qt
+## exit runebase-qt
 
 Exit the gui wallet in normal way.
 

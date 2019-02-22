@@ -1,6 +1,6 @@
 #!/bin/bash
 cd $HOME
-git clone https://github.com/qtumproject/x86-toolchain.git x86-compiler
+git clone https://github.com/runebase/x86-toolchain.git x86-compiler
 cd x86-compiler
 
 export TARGET=i386-elf
@@ -21,7 +21,7 @@ make install-gcc
 make install-target-libgcc
 
 cd $HOME
-git clone https://github.com/qtumproject/FsLibc
+git clone https://github.com/runebase/FsLibc
 cd FsLibc
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=cross-toolchain.cmake -DCMAKE_INSTALL_PREFIX=$SYSROOT/usr .
 make -C libc
@@ -38,13 +38,13 @@ cp crtfiles/*.o $SYSROOT/usr/lib/
 cp -r includes/* $SYSROOT/usr/include/
 
 cd $HOME
-export TARGET=i386-qtum
+export TARGET=i386-runebase
 
 cd x86-compiler
 rm -rf build-binutils
 mkdir build-binutils
 cd build-binutils
-../binutils-2.29/configure --target=i386-qtum --prefix="$PREFIX" --with-sysroot="$SYSROOT" --disable-werror
+../binutils-2.29/configure --target=i386-runebase --prefix="$PREFIX" --with-sysroot="$SYSROOT" --disable-werror
 make
 make install
 
@@ -53,7 +53,7 @@ cd ..
 rm -rf build-gcc
 mkdir build-gcc
 cd build-gcc
-../gcc-7.2.0/configure --target=i386-qtum --prefix="$PREFIX" --with-sysroot="$SYSROOT" --enable-languages=c
+../gcc-7.2.0/configure --target=i386-runebase --prefix="$PREFIX" --with-sysroot="$SYSROOT" --enable-languages=c
 make all-gcc
 make all-target-libgcc
 make install-gcc
@@ -64,7 +64,7 @@ rm -rf build-binutils
 rm -rf build-gcc
 
 cd $HOME
-git clone https://github.com/qtumproject/libqtum
-cd libqtum
+git clone https://github.com/runebase/librunebase
+cd librunebase
 make
 make deploy

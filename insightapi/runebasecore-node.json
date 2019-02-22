@@ -1,0 +1,37 @@
+{
+  "network": "livenet",
+  "port": 3001,
+  "services": [
+    "runebased",
+    "runebase-insight-api",
+    "runebase-explorer",
+    "web"
+  ],
+  "servicesConfig": {
+    "runebase-explorer": {
+      "apiPrefix": "insight-api",
+      "routePrefix": "explorer",
+      "nodemapLink": "https://runebase.org/en/nodemap"
+    },
+    "runebase-insight-api": {
+      "routePrefix": "insight-api",
+      "disableRateLimiter": true,
+      "db": {
+        "host": "mongo",
+        "port": "27017",
+        "database": "runebase-api-livenet",
+        "user": "",
+        "password": ""
+      },
+      "erc20": {
+        "updateFromBlockHeight": 0
+      }
+    },
+     "runebased": {
+      "spawn": {
+        "datadir": "/data/.runebase",
+        "exec": "runebased"
+      }
+    }
+  }
+}

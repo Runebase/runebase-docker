@@ -14,12 +14,10 @@ RUN set -ex \
  	&& rm -rf /var/lib/apt/lists/*
 
 # install runebase from github
-RUN cd /tmp && git clone --recursive https://github.com/runebase/runebase.git \
-	&& cd runebase \
+RUN cd /tmp && git clone --recursive https://github.com/runebase/runebase-bitcore.git \
+	&& cd runebase-bitcore \
 	&& ./autogen.sh \
 	&& ./configure --without-gui \
-	&& make \
-	&& make check \
 	&& make install  \
 	&& rm -rf /tmp/*
 

@@ -1,18 +1,18 @@
-# qtum-docker
+# runebase-docker
 
-Qtum docker image
+Runebase docker image
 
-## What is Qtum?
+## What is Runebase?
 
-Qtum is a new blockchain based on Bitcoin Core that integrates Ethereum based smart contracts. It implements an extensible design which is capable of adding more VMs, enabled primarily through the Account Abstraction Layer, which allows for an account based virtual machine to function on a UTXO based blockchain.
+Runebase is a new blockchain based on Bitcoin Core that integrates Ethereum based smart contracts. It implements an extensible design which is capable of adding more VMs, enabled primarily through the Account Abstraction Layer, which allows for an account based virtual machine to function on a UTXO based blockchain.
 
-Please refer to : https://github.com/qtumproject/qtum
+Please refer to : https://github.com/runebase/runebase
 
 ## Dockerfile
 
-The repo contains two Qtum Dockerfiles:
+The repo contains two Runebase Dockerfiles:
 
-* The Dockerfile with latest release version of `qtumd` and `qtum-cli`, which could be found in `/release`
+* The Dockerfile with latest release version of `runebased` and `runebase-cli`, which could be found in `/release`
 * The Dockerfile build directly with latest dev src in github, which could be found in `/dev`
 
 ## Docker images
@@ -24,17 +24,17 @@ Note: If you want to keep the latest update, please use the Dockerfile above to 
 The latest release version: 
 
 ```
-docker pull qtum/qtum:latest
+docker pull runebase/runebase:latest
 ```
 
 The dev version:
 
 ```
-docker pull qtum/qtum:dev
+docker pull runebase/runebase:dev
 ```
 
 The GUI version:
 
 ```
-docker pull qtum/qtum:qtum-qt
+docker pull runebase/runebase:runebase-qt
 ```

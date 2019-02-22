@@ -1,0 +1,16 @@
+server=1
+txindex=1
+addressindex=1
+timestampindex=1
+spentindex=1
+zmqpubrawtx=tcp://127.0.0.1:28332
+zmqpubhashblock=tcp://127.0.0.1:28332
+rpcallowip=172.0.0.0/8
+whitelist=172.0.0.0/8
+gen=0
+addrindex=1
+logevents=1
+rpcport=18332
+regtest=1
+rpcuser=${RUNEBASE_RPC_USER}
+rpcpassword=${RUNEBASE_RPC_PASS}
