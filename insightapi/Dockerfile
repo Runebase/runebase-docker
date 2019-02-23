@@ -31,6 +31,7 @@ COPY runebasecore-node.json /etc/
 COPY runebase.conf.template /etc/
 COPY run.sh /
 COPY qcli /usr/local/bin/
+RUN chmod +x /usr/local/bin/qcli
 
 WORKDIR /mynode
 
