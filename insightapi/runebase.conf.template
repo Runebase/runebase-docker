@@ -7,7 +7,6 @@ zmqpubrawtx=tcp://127.0.0.1:28332
 zmqpubhashblock=tcp://127.0.0.1:28332
 rpcallowip=172.0.0.0/8
 whitelist=172.0.0.0/8
-gen=0
 addrindex=1
 logevents=1
 rpcport=18332
