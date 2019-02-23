@@ -1,8 +1,8 @@
-FROM runebase/runebase-bitcore
+FROM bago213/runebase-bitcore
 
 RUN apt-get update \
     && apt-get install -y -qq --no-install-recommends curl \
-    && curl -sL https://deb.nodesource.com/setup_6.x | bash \
+    && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y -qq --no-install-recommends \
       curl \
       bash \
@@ -21,7 +21,7 @@ RUN npm i https://github.com/runebase/runebasecore-node.git#master \
 EXPOSE 3001
 
 ## install solar
-RUN wget -v https://github.com/runebase/solar/releases/download/0.0.14/solar-linux-amd64 -O /usr/local/bin/solar && chmod 0755 /usr/local/bin/solar 
+RUN wget -v https://github.com/qtumproject/solar/releases/download/0.0.14/solar-linux-amd64 -O /usr/local/bin/solar && chmod 0755 /usr/local/bin/solar 
 
 RUN ln -s /usr/local/bin/runebased /node_modules/runebasecore-node/bin/runebased
 # runebased
