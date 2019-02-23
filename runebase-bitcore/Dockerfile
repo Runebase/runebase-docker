@@ -4,7 +4,7 @@ MAINTAINER pandazwb
 RUN set -ex \
     && apt-get update \
     && apt-get install -y -qq --no-install-recommends ca-certificates git wget apt-utils \
-    && apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils \
+    && apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl1.0-dev libevent-dev bsdmainutils \
     && apt-get install -y libboost-all-dev \
 	&& apt-get install -y software-properties-common \
 	&& add-apt-repository -y ppa:bitcoin/bitcoin \
